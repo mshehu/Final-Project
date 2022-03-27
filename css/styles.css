@@ -1,0 +1,85 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300
+}
+
+#parent-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content-area {
+  display: flex;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 400px;
+  height: 100%;
+  padding: 25px 15px;
+  background-color: #313640;
+  color: #FFF;
+  text-align: left;
+  border-right: 1px solid #5e5e5e;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-top {
+  flex-grow: 1;
+  border-bottom: 1px solid #5e5e5e;
+}
+
+.sidebar-bottom {
+  padding-top: 15px;
+}
+
+.sidebar h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.sidebar h5 {
+  margin-bottom: 20px;
+}
+
+#mapContainer {
+  flex-grow: 1
+}
+
+/* override bootstrap styles for primary outline buttons */
+.btn-outline-primary {
+  color: #FFF;
+  border-color: #FFF;
+}
+
+.btn-toggled {
+  background-color: #FFB74D;
+}
+
+.btn-outline-primary:hover {
+  color: #333;
+  background-color: #ccc;
+  border-color: #ccc;
+}
+
+/* style the "brand" or logo area */
+.navbar-brand {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.reset {
+  margin-bottom: 25px;
+}
+
+.reset:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

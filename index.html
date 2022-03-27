@@ -1,0 +1,123 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NYC Neighborhoods</title>
+
+  <!-- add a favicon which will appear in browser tabs -->
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  <!-- CSS for google fonts, bootstrap, mapboxgl, mapboxgl geocoder, plus local styles-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  <div id='parent-container'>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#33485d;border-bottom: 1px solid #5e5e5e;">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#"><i class="fa-regular fa-building"></i> NYC Neighborhoods</a>
+
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- Link -->
+          </ul>
+
+          <!-- Icons (these will show up on the right) -->
+          <ul class="navbar-nav d-flex flex-row me-1">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">About</a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://github.com/chriswhong/class-7-demo"><i class="fab fa-github"></i></a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+    <div class='content-area'>
+      <div class='sidebar'>
+        <div class='sidebar-top'>
+          <h3>Welcome to the web map!</h3>
+          <p>This is an example of a more polished web map layout with a header and sidebar, google fonts, fontawesome icons, and some bootstrap UI components.</p>
+          <p>It doesn't actually do much, but can be a good template to build from.</p>
+
+          <h5>Toggle layers</h5>
+          <div class="btn-group" role="group" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-outline-primary toggle-lines btn-toggled">Toggle lines</button>
+            <button type="button" class="btn btn-outline-primary toggle-points btn-toggled">Toggle points</button>
+          </div>
+
+          <h5>Jump to a Neighborhood</h5>
+          <div class="btn-group nabe-buttons" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary flyto flyto-the-village">The Village</button>
+            <button type="button" class="btn btn-outline-primary flyto flyto-fidi">FiDi</button>
+            <button type="button" class="btn btn-outline-primary flyto flyto-washington-heights">Washington Heights</button>
+          </div>
+          <div class='reset'><small>Back to City View</small></div>
+          <div class="alert alert-primary" role="alert">
+            <i class="fa-solid fa-circle-info"></i> You could use an alert like this to call attention to a caveat in the data.
+          </div>
+        </div>
+        <div class='sidebar-bottom'>
+          <small>Data Source: <a href='https://data.cityofnewyork.us/City-Government/2010-Neighborhood-Tabulation-Areas-NTAs-/cpf4-rkhq'>2010 NYC Neighborhood Tabulation Areas</a></small>
+        </div>
+      </div>
+      <div id='mapContainer'>
+      <!-- this is where mapboxGL will insert the map -->
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">About this Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Here we can add plenty of info about the data, methodology, design inspiration, the issue at hand, or anything else.</p>
+            <p>You could also show this modal when the page first loads, as a splash screen of sorts.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/3a3d8feff0.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
