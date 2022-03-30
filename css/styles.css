@@ -22,12 +22,13 @@ html, body {
   width: 400px;
   height: 100%;
   padding: 25px 15px;
-  background-color: #313640;
+  background-color: #99ccff;
   color: #FFF;
   text-align: left;
   border-right: 1px solid #5e5e5e;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 .sidebar-top {
@@ -59,7 +60,7 @@ html, body {
 }
 
 .btn-toggled {
-  background-color: #FFB74D;
+  background-color: #3381ff;
 }
 
 .btn-outline-primary:hover {
@@ -82,4 +83,21 @@ html, body {
 .reset:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* makes the fly to buttons in columns */
+.boroughs {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-paragraph {
+  font-size: 12px
+}
+
+/*justifies text to the right to make it more visible*/
+#point-details {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }

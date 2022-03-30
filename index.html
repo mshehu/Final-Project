@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>NYC Neighborhoods</title>
+  <title>NYC Car Crashes</title>
 
   <!-- add a favicon which will appear in browser tabs -->
   <link rel="shortcut icon" href="./img/favicon.ico">
@@ -24,12 +24,12 @@
 <body>
   <div id='parent-container'>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#33485d;border-bottom: 1px solid #5e5e5e;">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#33ccff;border-bottom: 1px solid #5e5e5e;">
       <!-- Container wrapper -->
       <div class="container-fluid">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#"><i class="fa-regular fa-building"></i> NYC Neighborhoods</a>
+        <a class="navbar-brand" href="#"><i class="fa-regular fa-building"></i> NYC Car Accidents</a>
 
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,29 +60,37 @@
     <div class='content-area'>
       <div class='sidebar'>
         <div class='sidebar-top'>
-          <h3>Welcome to the web map!</h3>
-          <p>This is an example of a more polished web map layout with a header and sidebar, google fonts, fontawesome icons, and some bootstrap UI components.</p>
-          <p>It doesn't actually do much, but can be a good template to build from.</p>
+          <div class="alert alert-primary" role="alert">
+            <i class="fa-solid fa-circle-info"></i> The map is heavy and may need a minute to download all resources
+          </div>
+
+          <h4>Welcome to the web map!</h4>
+          <p class="description-paragraph">The Map consists of car accidets for NYC from 2014-Current date. There are two layers each representing the severity of these accidents in with a size attribute where the larger Intersections / thicker Roads mean more accidents</p>
+          <p class="description-paragraph">Clicking on the map will show details about the feature. Click the buttons below to toggle the layers on/off</p>
 
           <h5>Toggle layers</h5>
           <div class="btn-group" role="group" style="margin-bottom: 10px;">
-            <button type="button" class="btn btn-outline-primary toggle-lines btn-toggled">Toggle lines</button>
-            <button type="button" class="btn btn-outline-primary toggle-points btn-toggled">Toggle points</button>
+            <button type="button" class="btn btn-outline-primary toggle-lines btn-toggled">Roads</button>
+            <button type="button" class="btn btn-outline-primary toggle-points btn-toggled">Intersections</button>
           </div>
 
-          <h5>Jump to a Neighborhood</h5>
-          <div class="btn-group nabe-buttons" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary flyto flyto-the-village">The Village</button>
-            <button type="button" class="btn btn-outline-primary flyto flyto-fidi">FiDi</button>
-            <button type="button" class="btn btn-outline-primary flyto flyto-washington-heights">Washington Heights</button>
+
+
+          <div id="point-details"></div>
+
+          <h5>Jump to a Borough</h5>
+          <div class="btn-group nabe-buttons boroughs" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary flyto flyto-Manhattan">Manhattan</button>
+            <button type="button" class="btn btn-outline-primary flyto flyto-Brooklyn">Brooklyn</button>
+            <button type="button" class="btn btn-outline-primary flyto flyto-Queens">Queens</button>
+            <button type="button" class="btn btn-outline-primary flyto flyto-Bronx">Bronx</button>
+            <button type="button" class="btn btn-outline-primary flyto flyto-Staten-Island">Staten Island</button>
           </div>
           <div class='reset'><small>Back to City View</small></div>
-          <div class="alert alert-primary" role="alert">
-            <i class="fa-solid fa-circle-info"></i> You could use an alert like this to call attention to a caveat in the data.
-          </div>
+
         </div>
         <div class='sidebar-bottom'>
-          <small>Data Source: <a href='https://data.cityofnewyork.us/City-Government/2010-Neighborhood-Tabulation-Areas-NTAs-/cpf4-rkhq'>2010 NYC Neighborhood Tabulation Areas</a></small>
+          <small>Data Source: <a href='https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95'>Motor Vehicle Collisions - Crashes</a></small>
         </div>
       </div>
       <div id='mapContainer'>
@@ -98,8 +106,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Here we can add plenty of info about the data, methodology, design inspiration, the issue at hand, or anything else.</p>
-            <p>You could also show this modal when the page first loads, as a splash screen of sorts.</p>
+            <p>This is a project consisting of Car collisions from the NYC open data</p>
+            <p>Due to long waiting times in GIS analysis the layers will show only a general count of the number of accidents</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
