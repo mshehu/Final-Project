@@ -4,5 +4,4 @@
  
  ## Screenshot
  
- <img width="1207" alt="NYC_Neighborhoods" src="https://user-images.githubusercontent.com/1833820/157800064-bac69a02-2fa6-4f78-9de3-ca72fda454b5.png">
-
+ <img width="1207" alt="NYC_Car Accidents" src="https://user-images.githubusercontent.com/93173062/160892568-bb4dd488-2186-4f86-9999-a349eb026c0f.JPG">
