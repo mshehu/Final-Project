@@ -1,6 +1,8 @@
 # FInal Project
  This is the final project for the Web mapping. It incorporates data from NYC open data portan - Vehicle Collision and converts them in points and lines data.
 
+## Link to the Web Map
+https://mshehu.github.io/Final-Project/
  
  ## Screenshot
  
